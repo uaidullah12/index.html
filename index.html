@@ -6,110 +6,113 @@
     <title>HEMS - আল-হাইআতুল উলয়া</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
-        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Hind Siliguri', sans-serif; }
         body { background-color: #f4f7f6; color: #333; }
-        
-        /* Header */
         .main-header { background: #fff; border-bottom: 4px solid #1a5a33; padding: 10px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .container { max-width: 1000px; margin: 0 auto; padding: 0 15px; }
-        .header-content { display: flex; align-items: center; justify-content: space-between; }
-        .logo-section { display: flex; align-items: center; }
+        .header-content { display: flex; align-items: center; justify-content: flex-start; }
         
-        /* লোগো বড় করার জন্য এই অংশ */
-        .logo-section img { height: 75px; margin-right: 12px; }
-        
-        .logo-text h1 { font-size: 18px; color: #1a5a33; line-height: 1.2; }
-        .logo-text p { font-size: 12px; color: #666; }
-        
-        /* Banner */
-        .hero { background: #1a5a33; color: white; padding: 50px 20px; text-align: center; margin-bottom: 30px; }
-        .hero h2 { font-size: 24px; margin-bottom: 10px; }
-        
-        /* Result Box */
-        .result-card { background: white; max-width: 450px; margin: -60px auto 40px; padding: 30px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; }
+        /* আপনার দেওয়া নতুন লোগো ডিজাইন */
+        .logo-section img { height: 80px; margin-right: 15px; object-fit: contain; }
+        .logo-text h1 { font-size: 20px; color: #1a5a33; line-height: 1.2; font-weight: 700; }
+        .logo-text p { font-size: 13px; color: #666; font-weight: 500; }
+
+        .hero { background: #1a5a33; color: white; padding: 40px 20px; text-align: center; margin-bottom: 30px; }
+        .result-card { background: white; max-width: 450px; margin: -50px auto 40px; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; }
         .result-card h3 { text-align: center; color: #1a5a33; margin-bottom: 20px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
-        .form-group select, .form-group input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 15px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; }
         
-        .btn-submit { width: 100%; background: #1a5a33; color: white; border: none; padding: 12px; border-radius: 4px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; }
-        
-        /* রেজাল্ট পেজ ডিজাইন */
-        #result-page { display: none; margin-top: 20px; text-align: center; }
-        .marksheet { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .marksheet th, .marksheet td { border: 1px solid #ddd; padding: 10px; }
-        .marksheet th { background: #f2f2f2; color: #1a5a33; }
-        
-        .footer { text-align: center; padding: 20px; font-size: 12px; color: #888; }
+        .btn-submit { width: 100%; background: #1a5a33; color: white; border: none; padding: 13px; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { background: #144627; }
+
+        /* রেজাল্ট পেজ */
+        #result-area { display: none; margin-top: 20px; }
+        .marksheet { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; }
+        .marksheet th, .marksheet td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        .marksheet th { background: #1a5a33; color: white; }
+        .footer { text-align: center; padding: 25px; font-size: 13px; color: #777; border-top: 1px solid #e0e0e0; margin-top: 20px; }
     </style>
 </head>
 <body>
 
     <header class="main-header">
         <div class="container header-content">
-            <div class="logo-section">
-                <img src="https://alhaiatululya.org/wp-content/uploads/2021/01/ahu-logo.png" alt="আল-হাইআতুল উলয়া">
-                <div class="logo-text">
-                    <h1>আল-হাইআতুল উলয়া</h1>
-                    <p>লিল-জামি'আতিল কওমিয়া বাংলাদেশ</p>
-                </div>
+            <img src="https://raw.githubusercontent.com/uaidullah12/index.html/main/3510.png" alt="Logo">
+            <div class="logo-text">
+                <h1>আল-হাইআতুল উলয়া</h1>
+                <p>লিল-জামি'আতিল কওমিয়া বাংলাদেশ</p>
             </div>
         </div>
     </header>
 
-    <div id="home-page">
+    <div id="login-screen">
         <section class="hero">
             <div class="container">
                 <h2>পরীক্ষার ফলাফল অনুসন্ধান</h2>
-                <p>আপনার ফলাফল দেখতে নিচের তথ্যগুলো পূরণ করুন</p>
+                <p>আপনার ব্যক্তিগত ফলাফল দেখতে সঠিক তথ্য দিন</p>
             </div>
         </section>
 
         <div class="container">
             <div class="result-card">
-                <h3>ব্যক্তিগত ফলাফল</h3>
+                <h3>ফলাফল লগইন</h3>
                 <div class="form-group">
-                    <label>পরীক্ষা:</label>
-                    <select><option>দাওরায়ে হাদীস (তাকমীল) - ১৪৪৬</option></select>
+                    <label>রোল নম্বর:</label>
+                    <input type="number" id="rollNo" placeholder="আপনার রোল নম্বর দিন">
                 </div>
                 <div class="form-group">
-                    <label>রোল নম্বর (ইংরেজীতে):</label>
-                    <input type="number" id="rollInput" placeholder="উদা: ১২৩৪৫">
+                    <label>এডমিন পিন (আপনার কোড):</label>
+                    <input type="password" id="adminPin" placeholder="সিক্রেট পিন দিন">
                 </div>
-                <button class="btn-submit" onclick="showResult()">ফলাফল দেখুন</button>
+                <button class="btn-submit" onclick="checkResult()">ফলাফল দেখুন</button>
             </div>
         </div>
     </div>
 
-    <div id="result-page" class="container">
-        <div class="result-card">
-            <h3 id="resTitle">ফলাফল বিবরণী</h3>
-            <p>রোল নম্বর: <strong id="userRoll"></strong></p>
+    <div id="result-area" class="container">
+        <div class="result-card" style="max-width: 600px;">
+            <h3 id="resTitle">ব্যক্তিগত ফলাফল বিবরণী</h3>
+            <p style="text-align: center; margin-bottom: 10px;">রোল নম্বর: <strong id="showRoll"></strong></p>
             <table class="marksheet">
-                <tr><th>বিষয়</th><th>প্রাপ্ত নম্বর</th></tr>
-                <tr><td>বুখারী ১</td><td>৮৫</td></tr>
-                <tr><td>বুখারী ২</td><td>৮০</td></tr>
-                <tr><td>মুসলিম ১</td><td>৭৮</td></tr>
+                <thead><tr><th>বিষয়</th><th>নম্বর</th><th>বিভাগ</th></tr></thead>
+                <tbody id="marksBody">
+                    <tr><td>কুরআন মাজীদ</td><td>৯২</td><td>মুমতাজ</td></tr>
+                    <tr><td>হাদীস শরীফ</td><td>৮৮</td><td>মুমতাজ</td></tr>
+                    <tr><td>ফিকহ</td><td>৮৫</td><td>মুমতাজ</td></tr>
+                </tbody>
             </table>
             <br>
-            <button class="btn-submit" onclick="location.reload()">আবার দেখুন</button>
+            <button class="btn-submit" onclick="location.reload()">আবার অনুসন্ধান করুন</button>
         </div>
     </div>
 
     <footer class="footer">
-        © ২০২৬ আল-হাইআতুল উলয়া লিল-জামি'আতিল কওমিয়া বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।
+        © ২০২৬ আল-হাইআতুল উলয়া লিল-জামি'আতিল কওমিয়া বাংলাদেশ। <br>
+        কারিগরি সহযোগিতায়: এডমিন প্যানেল
     </footer>
 
     <script>
-        function showResult() {
-            var roll = document.getElementById('rollInput').value;
-            if (roll === "") {
-                alert("দয়া করে রোল নম্বর দিন!");
+        function checkResult() {
+            var roll = document.getElementById('rollNo').value;
+            var pin = document.getElementById('adminPin').value;
+
+            // আপনার সিক্রেট কোডটি এখানে সেট করুন (যেমন: 1234)
+            var secretCode = "1234"; 
+
+            if (roll === "" || pin === "") {
+                alert("সবগুলো ঘর পূরণ করুন!");
+                return;
+            }
+
+            if (pin === secretCode) {
+                document.getElementById('login-screen').style.display = "none";
+                document.getElementById('result-area').style.display = "block";
+                document.getElementById('showRoll').innerText = roll;
             } else {
-                document.getElementById('home-page').style.display = "none";
-                document.getElementById('result-page').style.display = "block";
-                document.getElementById('userRoll').innerText = roll;
+                alert("ভুল এডমিন পিন! আপনি এই ফলাফল দেখার অনুমতিপ্রাপ্ত নন।");
             }
         }
     </script>
