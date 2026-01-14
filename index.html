@@ -3,84 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEMS - আল-হাইআতুল উলয়া</title>
+    <title>HEMS - ফলাফল পোর্টাল</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Hind Siliguri', sans-serif; }
-        body { background-color: #f4f7f6; }
-        .main-header { background: #fff; border-bottom: 4px solid #1a5a33; padding: 10px 0; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 15px; }
-        .header-content { display: flex; align-items: center; }
-        .logo-section img { height: 80px; margin-right: 15px; }
-        .logo-text h1 { font-size: 20px; color: #1a5a33; }
-        .hero { background: #1a5a33; color: white; padding: 40px 20px; text-align: center; }
-        .result-card { background: white; max-width: 450px; margin: -50px auto 40px; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 15px; }
-        .form-group input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; }
-        .btn-submit { width: 100%; background: #1a5a33; color: white; border: none; padding: 13px; border-radius: 6px; font-weight: 700; cursor: pointer; }
-        #result-area { display: none; margin-top: 20px; }
-        .marksheet { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .marksheet th, .marksheet td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        body { background-color: #f0f4f8; color: #333; }
+        .header { background: #fff; border-bottom: 4px solid #1a5a33; padding: 15px; display: flex; align-items: center; justify-content: center; }
+        .header img { height: 70px; margin-right: 15px; }
+        .container { max-width: 500px; margin: 30px auto; padding: 15px; }
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h2 { color: #1a5a33; text-align: center; margin-bottom: 20px; }
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
+        .btn { width: 100%; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; }
+        .btn-view { background: #1a5a33; color: white; }
+        .btn-admin-save { background: #e67e22; color: white; margin-top: 10px; }
+        .admin-link { text-align: center; margin-top: 50px; color: #ccc; cursor: pointer; font-size: 10px; }
+        .result-display { display: none; margin-top: 20px; text-align: center; border-top: 2px dashed #1a5a33; padding-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        #admin-section { display: none; }
     </style>
 </head>
 <body>
 
-<header class="main-header">
-    <div class="container header-content">
-        <img src="https://raw.githubusercontent.com/uaidullah12/index.html/main/3510.png" alt="Logo">
-        <div class="logo-text">
-            <h1>আল-হাইআতুল উলয়া</h1>
-            <p>লিল-জামি'আতিল কওমিয়া বাংলাদেশ</p>
-        </div>
-    </div>
-</header>
-
-<div id="login-screen">
-    <section class="hero"><div class="container"><h2>ফলাফল অনুসন্ধান</h2></div></section>
-    <div class="container">
-        <div class="result-card">
-            <div class="form-group"><label>রোল নম্বর:</label><input type="number" id="rollNo"></div>
-            <div class="form-group"><label>সিক্রেট পিন (আপনার কোড):</label><input type="password" id="adminPin"></div>
-            <button class="btn-submit" onclick="checkResult()">ফলাফল দেখুন</button>
-        </div>
+<div class="header">
+    <img src="https://raw.githubusercontent.com/uaidullah12/index.html/main/3510.png" alt="Logo">
+    <div>
+        <h1 style="font-size: 20px; color: #1a5a33;">আল-হাইআতুল উলয়া</h1>
+        <p style="font-size: 12px;">লিল-জামি'আতিল কওমিয়া বাংলাদেশ</p>
     </div>
 </div>
 
-<div id="result-area" class="container">
-    <div class="result-card" style="max-width: 600px;">
-        <h3>ফলাফল বিবরণী</h3>
-        <p>রোল: <strong id="showRoll"></strong></p>
-        <div id="marksTable"></div>
-        <button class="btn-submit" onclick="location.reload()" style="margin-top:20px">আবার দেখুন</button>
+<div class="container" id="student-section">
+    <div class="card">
+        <h2>ফলাফল অনুসন্ধান</h2>
+        <label>পরীক্ষার বছর:</label>
+        <select><option>১৪৪৬ হিজরী / ২০২৬ ইং</option></select>
+        <label>রোল নম্বর দিন:</label>
+        <input type="number" id="s-roll" placeholder="উদা: ১২৩৪৫">
+        <button class="btn btn-view" onclick="showResult()">ফলাফল দেখুন</button>
+
+        <div id="res-box" class="result-display">
+            <h3>ফলাফল বিবরণী</h3>
+            <p>রোল: <strong id="r-roll"></strong></p>
+            <div id="r-table"></div>
+            <button class="btn btn-view" style="margin-top:15px;" onclick="location.reload()">আবার দেখুন</button>
+        </div>
+    </div>
+    <div class="admin-link" onclick="checkAdmin()">Admin Login (Secret)</div>
+</div>
+
+<div id="admin-section" class="container">
+    <div class="card">
+        <h2 style="color: #e67e22;">এডমিন কন্ট্রোল প্যানেল</h2>
+        <input type="number" id="a-roll" placeholder="ছাত্রের রোল নম্বর">
+        <input type="text" id="a-name" placeholder="ছাত্রের নাম">
+        <textarea id="a-data" style="width:100%; height:80px; padding:10px; margin-top:10px; border-radius:8px;" placeholder="বিষয়:নম্বর (উদা: বুখারী:৮৫, মুসলিম:৮০)"></textarea>
+        <button class="btn btn-admin-save" onclick="saveResult()">রেজাল্ট সেভ করুন</button>
+        <button class="btn" style="background:#666; color:#fff; margin-top:10px;" onclick="location.reload()">লগ আউট</button>
     </div>
 </div>
 
 <script>
-    // এখানে আপনি এডমিন হিসেবে রেজাল্ট সেট করবেন
-    const allResults = {
-        "12345": { name: "Abdullah", marks: "<tr><td>বুখারী ১</td><td>৮৫</td></tr><tr><td>মুসলিম ১</td><td>৯০</td></tr>" },
-        "54321": { name: "Karim", marks: "<tr><td>বুখারী ১</td><td>৭০</td></tr><tr><td>মুসলিম ১</td><td>৭৫</td></tr>" }
-    };
+    // ডাটা ব্রাউজারে সেভ থাকবে
+    let database = JSON.parse(localStorage.getItem('ahu_db')) || {};
 
-    function checkResult() {
-        var roll = document.getElementById('rollNo').value;
-        var pin = document.getElementById('adminPin').value;
-        
-        // আপনার নিজের পিন কোড এখানে দিন
-        if (pin !== "2026") { 
-            alert("ভুল পিন!"); 
-            return; 
-        }
-
-        if (allResults[roll]) {
-            document.getElementById('login-screen').style.display = "none";
-            document.getElementById('result-area').style.display = "block";
-            document.getElementById('showRoll').innerText = roll;
-            document.getElementById('marksTable').innerHTML = "<table class='marksheet'><tr><th>বিষয়</th><th>নম্বর</th></tr>" + allResults[roll].marks + "</table>";
+    // ছাত্রদের জন্য ফাংশন
+    function showResult() {
+        let roll = document.getElementById('s-roll').value;
+        if (database[roll]) {
+            document.getElementById('res-box').style.display = 'block';
+            document.getElementById('r-roll').innerText = roll;
+            let rows = "<table><tr><th>বিষয়</th><th>নম্বর</th></tr>";
+            database[roll].data.split(',').forEach(item => {
+                let p = item.split(':');
+                rows += `<tr><td>${p[0]}</td><td>${p[1]}</td></tr>`;
+            });
+            rows += "</table>";
+            document.getElementById('r-table').innerHTML = rows;
         } else {
-            alert("এই রোলের কোনো রেজাল্ট পাওয়া যায়নি!");
+            alert("দুঃখিত! এই রোলের কোনো রেজাল্ট পাওয়া যায়নি।");
+        }
+    }
+
+    // এডমিন পিন চেক
+    function checkAdmin() {
+        let pin = prompt("এডমিন সিক্রেট পিন দিন:");
+        if (pin === "2026") {
+            document.getElementById('student-section').style.display = 'none';
+            document.getElementById('admin-section').style.display = 'block';
+        } else {
+            alert("ভুল পিন!");
+        }
+    }
+
+    // এডমিন ডাটা সেভ ফাংশন
+    function saveResult() {
+        let roll = document.getElementById('a-roll').value;
+        let data = document.getElementById('a-data').value;
+        if(roll && data) {
+            database[roll] = { data: data };
+            localStorage.setItem('ahu_db', JSON.stringify(database));
+            alert("রোল " + roll + " এর রেজাল্ট সেভ হয়েছে!");
+            document.getElementById('a-roll').value = '';
+            document.getElementById('a-data').value = '';
+        } else {
+            alert("সবগুলো ঘর পূরণ করুন!");
         }
     }
 </script>
+
 </body>
 </html>
