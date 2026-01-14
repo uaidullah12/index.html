@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEMS - আল-হাইআতুল উলয়া</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Hind Siliguri', sans-serif; }
+        body { background-color: #f4f7f6; color: #333; }
+        
+        /* Header */
+        .main-header { background: #fff; border-bottom: 4px solid #1a5a33; padding: 10px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 15px; }
+        .header-content { display: flex; align-items: center; justify-content: space-between; }
+        .logo-section { display: flex; align-items: center; }
+        .logo-section img { height: 60px; margin-right: 12px; }
+        .logo-text h1 { font-size: 18px; color: #1a5a33; line-height: 1.2; }
+        .logo-text p { font-size: 12px; color: #666; }
+        
+        /* Navigation */
+        .nav-links { display: flex; gap: 15px; }
+        .nav-links a { text-decoration: none; color: #444; font-weight: 600; font-size: 14px; }
+        
+        /* Banner */
+        .hero { background: #1a5a33; color: white; padding: 50px 20px; text-align: center; margin-bottom: 30px; }
+        .hero h2 { font-size: 24px; margin-bottom: 10px; }
+        
+        /* Result Box */
+        .result-card { background: white; max-width: 450px; margin: -60px auto 40px; padding: 30px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e0e0e0; }
+        .result-card h3 { text-align: center; color: #1a5a33; margin-bottom: 20px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
+        .form-group select, .form-group input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 15px; }
+        
+        .btn-submit { width: 100%; background: #1a5a33; color: white; border: none; padding: 12px; border-radius: 4px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { background: #144627; }
+        
+        .footer { text-align: center; padding: 20px; font-size: 12px; color: #888; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo-section">
+                <img src="https://hems.alhaiatululya.org/assets/images/ahu_logo.png" alt="Logo">
+                <div class="logo-text">
+                    <h1>আল-হাইআতুল উলয়া</h1>
+                    <p>লিল-জামি'আতিল কওমিয়া বাংলাদেশ</p>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#">হোম</a>
+                <a href="#">ফলাফল</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>পরীক্ষার ফলাফল অনুসন্ধান</h2>
+            <p>আপনার ফলাফল দেখতে নিচের তথ্যগুলো পূরণ করুন</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="result-card">
+            <h3>ব্যক্তিগত ফলাফল</h3>
+            <div class="form-group">
+                <label>পরীক্ষা:</label>
+                <select><option>দাওরায়ে হাদীস (তাকমীল) - ১৪৪৬</option></select>
+            </div>
+            <div class="form-group">
+                <label>রোল নম্বর (ইংরেজীতে):</label>
+                <input type="number" placeholder="উদা: ১২৩৪৫">
+            </div>
+            <button class="btn-submit">ফলাফল দেখুন</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        © ২০২৬ আল-হাইআতুল উলয়া লিল-জামি'আতিল কওমিয়া বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।
+    </footer>
+
+</body>
+</html>
